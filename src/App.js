@@ -6,6 +6,7 @@ import {Container} from "react-bootstrap";
 
 function App() {
     const [city, setCity] = useState("")
+    const [weatherNumbers, setWeatherNumbers] = useState("")
     const [weather, setWeather] = useState("")
     const [weatherCity, setWeatherCity] = useState("")
     const [weatherImage, setWeatherImage] = useState("https://images.pexels.com/photos/912110/pexels-photo-912110.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
@@ -23,7 +24,10 @@ function App() {
                     console.log(res)
                     setWeatherCity(res.name)
                     setWeather(res.weather[0])
+                    setWeatherNumbers(res.main)
                     console.log(res.weather[0].main)
+                    console.log(res.main)
+
                     if (res.weather[0].main==="Rain"){
                         setWeatherImage("https://images.pexels.com/photos/1100946/pexels-photo-1100946.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
                     }else if(res.weather[0].main==="Haze"){
@@ -46,7 +50,7 @@ function App() {
         <div className="App" style={{background: `url(${weatherImage})`, backgroundRepeat: "no-repeat"}}>
             <Container style={{width: "40%"}}>
                 <CityInput fetchCityWeather={fetchWeather} city={city} setCity={setCity}/>
-                <CityWeather weatherCity={weatherCity} weather={weather}/>
+                <CityWeather weatherNumber={weatherNumbers} weatherCity={weatherCity} weather={weather}/>
             </Container>
         </div>
     )

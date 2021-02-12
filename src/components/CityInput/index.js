@@ -9,6 +9,7 @@ const CityInput = ({city, setCity, fetchCityWeather}) => {
     }
 
     const handleClick = (e)=>{
+        e.preventDefault()
         if (!city){
             setError("Field is empty")
         }else{
@@ -16,10 +17,11 @@ const CityInput = ({city, setCity, fetchCityWeather}) => {
             fetchCityWeather()
         }
     }
+
     return (
         <Container className="m-auto p-5">
             <h2 className="text-light m-3">Weather App</h2>
-            <Form style={{textAlign: "center"}}>
+            <Form onSubmit={handleClick} style={{textAlign: "center"}}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Control
                         value={city}
