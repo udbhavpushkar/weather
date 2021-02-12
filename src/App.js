@@ -21,21 +21,23 @@ function App() {
             })
             .then(res=>{
                 if (res.cod!=="404"){
-                    console.log(res)
+
                     setWeatherCity(res.name)
                     setWeather(res.weather[0])
                     setWeatherNumbers(res.main)
+
+                    console.log(res)
                     console.log(res.weather[0].main)
                     console.log(res.main)
 
                     if (res.weather[0].main==="Rain"){
                         setWeatherImage("https://images.pexels.com/photos/1100946/pexels-photo-1100946.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")
                     }else if(res.weather[0].main==="Haze"){
-                        setWeatherImage("https://images.pexels.com/photos/531321/pexels-photo-531321.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+                        setWeatherImage("https://cdn.dnaindia.com/sites/default/files/styles/full/public/2018/10/23/746497-smog.jpg")
                     }else if(res.weather[0].main==="Clouds"){
                         setWeatherImage("https://images.pexels.com/photos/1478524/pexels-photo-1478524.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
                     }else if(res.weather[0].main==="Smoke"){
-                        setWeatherImage("https://images.pexels.com/photos/1040473/pexels-photo-1040473.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+                        setWeatherImage("https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/FQPQPJX64AI6TA2BZQ644UXH3Y.jpg")
                     }
                     else{
                         setWeatherImage("https://images.pexels.com/photos/912110/pexels-photo-912110.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
