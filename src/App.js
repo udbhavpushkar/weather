@@ -2,7 +2,7 @@ import './App.css';
 import CityInput from "./components/CityInput";
 import CityWeather from "./components/CityWeather";
 import React, {useState} from "react";
-import {Container} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 
 function App() {
     const [city, setCity] = useState("")
@@ -48,9 +48,13 @@ function App() {
     }
     return(
         <div className="App" style={{background: `url(${weatherImage})`, backgroundRepeat: "no-repeat"}}>
-            <Container style={{width: "40%"}}>
-                <CityInput fetchCityWeather={fetchWeather} city={city} setCity={setCity}/>
-                <CityWeather weatherNumber={weatherNumbers} weatherCity={weatherCity} weather={weather}/>
+            <Container>
+                <Row>
+                    <Col className="m-auto" xs={10} md={6}>
+                        <CityInput fetchCityWeather={fetchWeather} city={city} setCity={setCity}/>
+                        <CityWeather weatherNumber={weatherNumbers} weatherCity={weatherCity} weather={weather}/>
+                    </Col>
+                </Row>
             </Container>
         </div>
     )
