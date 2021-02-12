@@ -1,26 +1,25 @@
 import React, {useState} from 'react';
 import {Form, Button, Container} from "react-bootstrap";
 
-const CityInput = () => {
-    const [city, setCity] = useState("")
+const CityInput = ({city, setCity, fetchCityWeather}) => {
     const [error, setError] = useState("");
     const handleInputChange = (e)=>{
         setCity(e.target.value)
         console.log(city)
     }
+
     const handleClick = (e)=>{
         if (!city){
             setError("Field is empty")
         }else{
             setError("")
-
+            fetchCityWeather()
         }
     }
     return (
-        <Container>
+        <Container className="m-auto p-5" style={{width: "50%"}}>
             <Form>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label>City</Form.Label>
                     <Form.Control
                         value={city}
                         type="text"
