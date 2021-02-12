@@ -3,6 +3,7 @@ import CityInput from "./components/CityInput";
 import CityWeather from "./components/CityWeather";
 import React, {useState} from "react";
 import {Col, Container, Row} from "react-bootstrap";
+import {TiHeartFullOutline} from "react-icons/ti"
 
 function App() {
     const [city, setCity] = useState("")
@@ -58,6 +59,10 @@ function App() {
                     </Col>
                 </Row>
             </Container>
+            <p className="footer">
+                Designed with <TiHeartFullOutline className="text-danger"/>  by :
+                <a rel="noreferrer" target="_blank" href="https://github.com/udbhavpushkar/">udbhavpushkar</a>
+            </p>
         </div>
     )
 }
