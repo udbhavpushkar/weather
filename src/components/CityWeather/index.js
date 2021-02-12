@@ -2,19 +2,16 @@ import React from 'react';
 import {Alert} from "react-bootstrap";
 import Error from "../Error";
 
-const CityWeather = ({weather}) => {
+const CityWeather = ({weather, weatherCity}) => {
     if (weather==="404"){
         return <Error/>
     }else if (weather){
         return (
             <Alert variant="success">
-                <Alert.Heading>{weather.main}</Alert.Heading>
-                <p>{weather.description}</p>
+                <Alert.Heading>{weatherCity}</Alert.Heading>
+                <p>{weather.main}</p>
                 <hr />
-                <p className="mb-0">
-                    Whenever you need to, be sure to use margin utilities to keep things nice
-                    and tidy.
-                </p>
+                <p className="mb-0">{weather.description}</p>
             </Alert>
         );
     }else {

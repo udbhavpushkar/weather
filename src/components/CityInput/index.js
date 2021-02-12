@@ -17,8 +17,9 @@ const CityInput = ({city, setCity, fetchCityWeather}) => {
         }
     }
     return (
-        <Container className="m-auto p-5" style={{width: "50%"}}>
-            <Form>
+        <Container className="m-auto p-5">
+            <h2 className="text-light m-3">Weather App</h2>
+            <Form style={{textAlign: "center"}}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Control
                         value={city}
@@ -27,7 +28,7 @@ const CityInput = ({city, setCity, fetchCityWeather}) => {
                         placeholder="Enter City" />
                     <small className="text-danger">{error}</small>
                 </Form.Group>
-                <Button onClick={handleClick} variant="primary">
+                <Button onClick={handleClick} variant="success">
                     Submit
                 </Button>
             </Form>
